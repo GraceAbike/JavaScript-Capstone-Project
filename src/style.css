@@ -107,7 +107,6 @@ a {
 
 /* The footer */
 footer {
-  margin-top: auto;
   background-color: black;
   display: flex;
   align-items: center;
