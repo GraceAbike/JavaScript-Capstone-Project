@@ -1,10 +1,19 @@
 import APImealsURL from './API-utils.js';
 
+const setMealsCount = async (meals) => {
+  const countElement = document.querySelector('#meals-count');
+  const counter = await meals.length;
+  countElement.innerHTML = `Number of Meals: (${counter})`;
+  return counter;
+};
+
 const displayMeals = async () => {
   try {
     // Fetching the meals from the API
     const fetchedMeals = await fetch(APImealsURL);
     const { meals } = await fetchedMeals.json();
+    // Setting the meals count
+    setMealsCount(meals);
     // Get the Page-Content element to insert meal cards
     const pageContent = document.querySelector('#page-content');
 
