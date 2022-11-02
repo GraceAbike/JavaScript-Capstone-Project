@@ -2,6 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
 
+/* page reset styles */
 *,
 *::before,
 *::after {
@@ -13,6 +14,7 @@
 :root {
   --font-mont: 'Montserrat', sans-serif;
   --white: #fff;
+  --open-sans: "Open Sans", sans-serif;
 }
 
 html {
@@ -22,6 +24,21 @@ html {
 body {
   font-family: 'Poppins', sans-serif;
   min-height: 100vh;
+}
+
+main {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.container {
+  font-family: var(--open-sans);
+  font-style: normal;
+  width: 100%;
+  padding: 0;
+  margin: 0;
 }
 
 .flex-row {
@@ -37,7 +54,6 @@ body {
 nav {
   display: flex;
   flex-direction: column;
-  padding: 1rem 0.2rem;
   gap: 0.5rem;
   background-color: darkblue;
   color: var(--white);
@@ -68,10 +84,6 @@ nav {
   width: max-content;
 }
 
-.open {
-  left: 0;
-}
-
 .name b {
   font-size: 1.5rem;
 }
@@ -83,6 +95,7 @@ nav {
   align-items: center;
   gap: 15px;
   flex-wrap: nowrap;
+  margin: -10px 0 0;
 }
 
 li {
@@ -105,15 +118,182 @@ a {
   color: var(--white);
 }
 
-/* The footer */
+/* Page-Section Start */
+.page-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 120px 40px 20px;
+  min-height: 555px;
+  height: 100%;
+  width: 100%;
+}
+
+.page-content {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  height: auto;
+  width: 100%;
+}
+
+/* Page-Section End */
+.card-section {
+  display: flex;
+  width: auto;
+}
+
+.card {
+  width: 320px;
+  border: 3px solid palevioletred;
+  border-radius: 27px;
+}
+
+.image-content,
+.card-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 14px;
+}
+
+.image-content {
+  position: relative;
+  row-gap: 5px;
+  padding: 25px 0;
+}
+
+.overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  background-color: darkblue;
+  border-radius: 25px 25px 0 25px;
+  padding: 10px;
+}
+
+.overlay::before,
+.overlay::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: darkblue;
+}
+
+.overlay::after {
+  border-radius: 0 25px 0 0;
+  background-color: whitesmoke;
+}
+
+.card-image {
+  position: relative;
+  height: 250px;
+  width: 250px;
+  border-radius: 50%;
+}
+
+.card-image .card-img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.card-section img {
+  width: 300px;
+  height: 300px;
+}
+
+.title {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 15px;
+  z-index: 1;
+}
+
+/* The Like Button */
+.like-content {
+  font-size: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.heart-icon {
+  color: red;
+}
+
+.like-count::before {
+  font-family: sans-serif;
+  font-size: 15px;
+  content: '100 Likes';
+  color: #9c9496;
+}
+
+.meal-name {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+}
+
+.description {
+  font-size: 14px;
+  color: #707070;
+  text-align: center;
+}
+
+.card-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.card-btn {
+  font-family: var(--open-sans);
+  font-size: 15px;
+  padding: 8px;
+  background-color: pink;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  height: 35px;
+  width: 110px;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-btn:hover {
+  background-color: palevioletred;
+}
+
+/* The footer start */
 footer {
+  margin-top: auto;
   background-color: black;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  color: var(--white);
+  color: white;
   font-size: 0.6rem;
-  margin: 580px 0 0 0;
 }
 
 .social-icons {
@@ -148,12 +328,12 @@ footer {
   color: palevioletred;
 }
 
+/* Media Query Start */
 @media only screen and (min-width: 768px) {
   body {
     overflow-x: hidden;
   }
 
-  /* footer, */
   nav {
     display: flex;
     flex-direction: row;
@@ -167,7 +347,6 @@ footer {
   .nav-menu {
     display: flex;
     flex-direction: row;
-    gap: 2rem;
-    margin-right: 2rem;
+    gap: 3rem;
   }
 }
