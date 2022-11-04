@@ -19,7 +19,6 @@
   --verdana: verdana, tahoma, sans-serif;
   --Tahoma: tahoma, verdana, sans-serif;
   --sans-serif: sans-serif, verdana, tahoma;
-  --open-sans: "Open Sans", sans-serif;
 }
 
 html {
@@ -151,6 +150,7 @@ a {
   width: 100%;
   padding: 0 50px;
 }
+
 .meals-count h2 {
   font-size: 15px;
   font-family: var(--open-sans);
