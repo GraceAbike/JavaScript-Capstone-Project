@@ -1,4 +1,5 @@
-import APImealsURL from './API-utils.js';
+import mealsURL from './API-utils.js';
+import displayPopup from './popup.js';
 
 const setMealsCount = async (meals) => {
   const countElement = document.querySelector('#meals-count');
@@ -9,14 +10,10 @@ const setMealsCount = async (meals) => {
 
 const displayMeals = async () => {
   try {
-    // Fetching the meals from the API
-    const fetchedMeals = await fetch(APImealsURL);
+    const fetchedMeals = await fetch(mealsURL);
     const { meals } = await fetchedMeals.json();
-    // Setting the meals count
     setMealsCount(meals);
-    // Get the Page-Content element to insert meal cards
     const pageContent = document.querySelector('#page-content');
-
     meals.map((meal) => {
       const {
         idMeal, strMeal, strMealThumb,
@@ -48,15 +45,14 @@ const displayMeals = async () => {
           </div>
       </div>
       `;
-      // Setting the comment button event listener
+
       mealCard.querySelector('#comment-btn').addEventListener('click', () => {
+        displayPopup(meal);
       });
 
-      // Setting the reservation button event listener
       mealCard.querySelector('#reservation-btn').addEventListener('click', () => {
       });
 
-      // Setting the like button event listener
       mealCard.querySelector('#heart-icon').addEventListener('click', () => {
       });
 

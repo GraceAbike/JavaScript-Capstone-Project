@@ -1,0 +1,192 @@
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* modal */
+.modal-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 99999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(18, 5, 65, 0.61);
+  backdrop-filter: blur(5px);
+}
+
+.modal-container:target {
+  display: flex;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 95%;
+  border-radius: 18px;
+  color: hsl(220, 50%, 90%);
+  background: linear-gradient(to right, hsl(244, 90%, 27%), hsl(336, 87%, 43%));
+  padding: 35px 45px;
+  overflow: hidden;
+  overflow-y: auto;
+  position: relative;
+}
+
+/* close Button */
+.close-btn {
+  align-self: flex-end;
+  position: absolute;
+  right: 1.5%;
+  top: 1.5%;
+  padding: 0;
+  margin: 0;
+}
+
+.close-btn a {
+  position: sticky;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  text-decoration: none;
+  text-align: center;
+  color: inherit;
+  border: 1px solid hsla(0, 0%, 100%, 0.2);
+  border-radius: 100%;
+  width: 32px;
+  height: 32px;
+  padding: 0;
+  margin: 0;
+  transition: 0.2s;
+}
+
+.close-btn a::before {
+  content: 'x';
+  transform: translateY(-0.1rem);
+}
+
+.close-btn a:hover,
+.close-btn a:focus {
+  background: hsl(258, 92%, 24%);
+  border-color: hsl(351, 89%, 42%);
+  transform: translate(0.1rem, -0.2rem);
+}
+
+/* Card-content */
+.popup-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+.popup-image {
+  display: flex;
+  max-width: 100%;
+  max-height: 75%;
+  padding: 10px 5px;
+}
+
+.popup-img {
+  border-radius: 50px 50px 50px 50px;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+}
+
+.card-details {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+h2,
+h3,
+p,
+ul,
+li,
+span {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
+  line-height: 1.5;
+  letter-spacing: 1px;
+  list-style: none;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px 10px 5px;
+}
+
+.meal-comments {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  padding: 10px;
+  margin: 0;
+}
+
+.comments-title {
+  align-self: center;
+  padding: 5px;
+}
+
+.comment-section {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  overflow-wrap: break-word;
+}
+
+.comments-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.form-title {
+  align-self: center;
+  padding: 20px 0 5px;
+}
+
+.form-group {
+  display: flex;
+  padding: 15px 0 0;
+}
+
+.form-group input {
+  width: 100%;
+  border-radius: 6px;
+  min-height: 1.5rem;
+  padding: 5px 10px;
+}
+
+.form-group textarea {
+  width: 100%;
+  border-radius: 6px;
+  padding: 10px 12px;
+}
