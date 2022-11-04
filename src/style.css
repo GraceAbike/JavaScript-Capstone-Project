@@ -55,12 +55,6 @@ main {
   flex-direction: column;
 }
 
-.title h1,
-h2,
-h3 {
-  margin: 0;
-}
-
 nav {
   display: flex;
   flex-direction: column;
@@ -263,18 +257,17 @@ a {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   padding: 5px;
 }
 
 .heart-icon {
   color: red;
+  cursor: pointer;
 }
 
-.like-count::before {
+.like-count {
   font-family: sans-serif;
   font-size: 15px;
-  content: '100 Likes';
   color: #9c9496;
 }
 
