@@ -12,10 +12,14 @@
 
 ## Live Demo (Deployed on GitHub-Pages with SSL)
 
+[GitHub page](https://graceabike.github.io/JavaScript-Capstone-Project/)
 
 ## Video Demo (Using Loom)
 
 [![Loom](https://img.shields.io/badge/Loom-Video-blueviolet)](https://loom.com)
+
+
+[Restaurant meal Video](https://www.loom.com/share/74dec9830b584b8bb6bae76f692d0af7)
 
 ## Getting Started
 
