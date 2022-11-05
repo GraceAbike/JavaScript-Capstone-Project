@@ -4,6 +4,7 @@ const displayPopup = async (meal) => {
   const {
     idMeal, strMeal, strMealThumb,
   } = meal;
+  // Fetch the comments of the current meal
   const comments = await getComments(idMeal);
 
   const popup = document.createElement('div');
@@ -23,20 +24,18 @@ const displayPopup = async (meal) => {
           </div>
           <div class="meal-comments">
               <h2 class="comments-title">Comments(${comments.length > 0 ? comments.length : 0})</h2>
-              <ul id="comments-list" class="comments-list">
-                  
+              <ul id="list" class="list">
               </ul>
-
               <div class="comment-form">
                   <h3 class="form-title">Add Your Comment</h3>
-                  <form action="#" id="comment-form">
+                  <form action="#" id="form">
                       <div class="form-group">
                           <label for="author" hidden>Your name</label>
-                          <input type="text" id="comment-author" placeholder="Your name" required>
+                          <input type="text" id="author" placeholder="Your name" required>
                       </div>
                       <div class="form-group">
                           <label for="comment" hidden>Your comment</label>
-                          <textarea name="comment" id="comment-txt" rows="10" placeholder="Your comment" required></textarea>
+                          <textarea name="comment" id="txt" rows="10" placeholder="Your comment" required></textarea>
                       </div>
                       <div class="form-group">
                           <button id="submit-btn" class="card-btn" type="submit">Comment</button>
@@ -48,17 +47,19 @@ const displayPopup = async (meal) => {
       </div>
       `;
 
+  // Populate the comments list
+  /* eslint-disable */
   if (comments.length > 0) {
-    const commentsList = popup.querySelector('#comments-list');
+    const commentsList = popup.querySelector('#list');
 
     comments.map((c) => {
       const {
-        username, comment,
+        username, comment, creation_date,
       } = c;
       const listItem = document.createElement('li');
       listItem.innerHTML = `
                 <div class="comment-section">
-                    <span class="comment-header">${username}:&ensp;</span>
+                    <span class="comment-header">(${creation_date}) ${username}:&ensp;</span>
                     <p class="comment-body">${comment}</p>
                 </div>
             `;
@@ -74,16 +75,15 @@ const displayPopup = async (meal) => {
   });
 
   popup.querySelector('#submit-btn').addEventListener('click', (e) => {
-    const commentsList = popup.querySelector('#comments-list');
-    const user = popup.querySelector('#comment-author').value;
-    const comment = popup.querySelector('#comment-txt').value;
+    const commentsList = popup.querySelector('#list');
+    const user = popup.querySelector('#author').value;
+    const comment = popup.querySelector('#txt').value;
     const t = new Date();
     const date = (`0${t.getDate()}`).slice(-2);
     const month = (`0${t.getMonth() + 1}`).slice(-2);
     const year = t.getFullYear();
     const fullDate = `${year}-${month}-${date}`;
 
-    // Add the new comment to the comments list without the need to refresh the page
     if (user.trim() !== '' && comment.trim() !== '') {
       e.preventDefault();
       setComments(idMeal, user, comment);
@@ -95,7 +95,7 @@ const displayPopup = async (meal) => {
                 </div>
          `;
       commentsList.appendChild(listItem);
-      popup.querySelector('#comment-form').reset();
+      popup.querySelector('#form').reset();
     }
   });
   document.body.style.overflow = 'hidden';

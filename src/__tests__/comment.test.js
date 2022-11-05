@@ -1,25 +1,25 @@
-const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/fZEB2tpIC45iiUMRjYli/comments?item_id=52855';
+const baseUrl = 'https://us-central1-involvement-api.cloudfunctions.net/capstoneApi/apps/ltfxAhWasUBm6Wza96hc/comments?item_id=52855';
 
 const commentJson = [
   {
     comment: 'Looks Good!',
-    username: 'ZikaZaki',
-    creation_date: '2022-09-17',
+    username: 'Grace',
+    date: '2022-11-3',
   },
   {
-    creation_date: '2022-09-17',
-    comment: 'zx',
-    username: 'Bob',
+    date: '2022-11-3',
+    comment: 'So Nice',
+    username: 'Keenan',
   },
   {
-    username: 'Dann',
-    comment: 'Good stuff',
-    creation_date: '2022-09-17',
+    username: 'Abike',
+    comment: 'Great stuff',
+    date: '2022-11-3',
   },
   {
-    creation_date: '2022-09-17',
+    date: '2022-11-3',
     comment: 'Love it',
-    username: 'Wdhah',
+    username: 'Botes',
   },
 ];
 
