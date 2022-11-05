@@ -29,6 +29,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  width: 38%;
   height: 95%;
   border-radius: 18px;
   color: hsl(220, 50%, 90%);
@@ -110,13 +111,13 @@
   flex-direction: column;
 }
 
+.card-details,
 h2,
 h3,
 p,
 ul,
 li,
 span {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Open Sans', sans-serif;
   line-height: 1.5;
   letter-spacing: 1px;
   list-style: none;
