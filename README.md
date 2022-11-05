@@ -12,7 +12,7 @@
 
 ## Live Demo (Deployed on GitHub-Pages with SSL)
 
-[GitHub page](https://graceabike.github.io/JavaScript-Capstone-Project/)
+[GitHub page](https://graceabike.github.io/JavaScript-Capstone-Project/dist/index.html)
 
 ## Video Demo (Using Loom)
 
