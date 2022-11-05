@@ -1,10 +1,9 @@
-import { getComments, setComments } from "./API-utils";
-
+import { getComments, setComments } from './API-utils.js';
 
 const displayPopup = async (meal) => {
   const {
-    idMeal, strMeal, strMealThumb 
-} = meal;
+    idMeal, strMeal, strMealThumb,
+  } = meal;
 
   const comments = await getComments(idMeal);
 
@@ -52,7 +51,7 @@ const displayPopup = async (meal) => {
   </div>
       `;
 
-      /* eslint-disable */
+  /* eslint-disable */
   if (comments.length > 0) {
     const commentsList = popup.querySelector('.comments-list');
 

@@ -48,4 +48,6 @@ const setComments = async (idMeal, user, comment) => {
     }),
   });
 };
-export { getMeals, getLikes, setLikes, getComments, setComments };
+export {
+  getMeals, getLikes, setLikes, getComments, setComments,
+};
