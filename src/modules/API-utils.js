@@ -27,4 +27,27 @@ const getLikes = async () => {
   return data;
 };
 
-export { getMeals, getLikes, setLikes };
+// Gets all the comments of a given meal from the comments-API
+const getComments = async (idMeal) => {
+  const response = await fetch(`${involvementURL}comments?item_id=${idMeal}`);
+  const data = await response.json();
+  return data;
+};
+
+// Adds a new comments for an item in the likes-API
+const setComments = async (idMeal, user, comment) => {
+  await fetch(`${involvementURL}comments`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      item_id: idMeal,
+      username: user,
+      comment,
+    }),
+  });
+};
+export {
+  getMeals, getLikes, setLikes, getComments, setComments,
+};
