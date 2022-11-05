@@ -1,7 +1,13 @@
+import { getComments, setComments } from "./API-utils";
+
+
 const displayPopup = async (meal) => {
   const {
-    strMeal, strMealThumb,
-  } = meal;
+    idMeal, strMeal, strMealThumb 
+} = meal;
+
+  const comments = await getComments(idMeal);
+
   const popup = document.createElement('div');
   popup.classList.add('modal-container');
   popup.setAttribute('id', 'modal-container');
@@ -17,16 +23,14 @@ const displayPopup = async (meal) => {
           <h2 class="dish-name">${strMeal}</h2>
         </div>
       </div>
+
       <div class="meal-comments">
-        <h2 class="comments-title">Comments 10</h2>
+        <h2 class="comments-title">Comments (${comments.length > 0 ? comments.length : 0})</h2>
+
         <ul class="comments-list">
-        <li>
-          <div class="comment-section">
-            <span class="comment-header">01/12/2022: GraceAbike</span>
-            <p class="comment-body">I'd love to buy it</p>
-          </div>
-          </li>
+        <!-- Comment lists -->
         </ul>
+
         <div class="comment-form">
         <h3 class="form-title">Add Your Comment</h3>
         <form action="#">
@@ -47,29 +51,58 @@ const displayPopup = async (meal) => {
   </div>
   </div>
       `;
+
+      /* eslint-disable */
+  if (comments.length > 0) {
+    const commentsList = popup.querySelector('.comments-list');
+
+    comments.map((c) => {
+      const {
+        username, comment, creation_date,
+      } = c;
+      const listItem = document.createElement('li');
+      listItem.innerHTML = `
+                <div class="comment-section">
+                    <span class="comment-header">(${creation_date}) ${username}:&ensp;</span>
+                    <p class="comment-body">${comment}</p>
+                </div>
+            `;
+      return commentsList.appendChild(listItem);
+    });
+  }
+
   document.querySelector('#page-section').appendChild(popup);
+
   popup.querySelector('#close-btn').addEventListener('click', () => {
     popup.remove();
     document.body.style.overflow = 'auto';
   });
-  // popup.querySelector('#comment_form').addEventListener('submit', (e) => {
-  //     e.preventDefault();
-  //     const commenterName = popup.querySelector('#commenter_name').value;
-  //     const commentText = popup.querySelector('#comment_text').value;
-  //     const comment = document.createElement('div');
-  //     comment.classList.add('comment');
-  //     comment.innerHTML = `
-  //     <div class="comment-header">
-  //         <h3>${commenterName}</h3>
-  //         <span class="comment-date">Date</span>
-  //     </div>
-  //     <p class="comment-text">${commentText}</p>
-  //     `;
-  //     popup.querySelector('.comments-content').appendChild(comment);
-  //     popup.querySelector('#comment_form').reset();
-  // });
+
+  popup.querySelector('.card-btn').addEventListener('click', (e) => {
+    const commentsList = popup.querySelector('.comments-list');
+    const user = popup.querySelector('#author').value;
+    const comment = popup.querySelector('#comment').value;
+    const t = new Date();
+    const date = (`0${t.getDate()}`).slice(-2);
+    const month = (`0${t.getMonth() + 1}`).slice(-2);
+    const year = t.getFullYear();
+    const fullDate = `${year}-${month}-${date}`;
+
+    if (user.trim() !== '' && comment.trim() !== '') {
+        e.preventDefault();
+        setComments(idMeal, user, comment);
+        const listItem = document.createElement('li');
+        listItem.innerHTML = `
+                  <div class="comment-section">
+                      <span class="comment-header">(${fullDate}) ${user}:&ensp;</span>
+                      <p class="comment-body">${comment}</p>
+                  </div>
+           `;
+        commentsList.appendChild(listItem);
+        popup.querySelector('.comment-form').reset();
+      }
+    });
   document.body.style.overflow = 'hidden';
-};
-  // displayPopup(meal){
-  // }
+}
+
 export default displayPopup;
