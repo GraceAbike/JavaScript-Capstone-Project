@@ -157,7 +157,7 @@ span {
   overflow-wrap: break-word;
 }
 
-.comments-list {
+.list {
   display: flex;
   flex-direction: column;
   gap: 5px;

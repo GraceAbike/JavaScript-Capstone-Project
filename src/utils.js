@@ -29,11 +29,11 @@ const displayMeals = async () => {
       const mealCard = document.createElement('div');
       mealCard.classList.add('card-section');
       mealCard.innerHTML = `
-            <div class="card" meal_id="${idMeal}">
+            <div class="card" meal-id="${idMeal}">
                 <div class="image-content">
                     <span class="overlay"></span>
                     <div class="card-image">
-                        <img id="card_img" class="card-img" src="${strMealThumb}" alt="${strMeal} Image">
+                        <img id="card-img" class="card-img" src="${strMealThumb}" alt="${strMeal} Image">
                     </div>
                 </div>
                 <div class="card-content">

@@ -372,5 +372,6 @@ footer {
     display: flex;
     flex-direction: row;
     gap: 3rem;
+    margin-right: 2rem;
   }
 }
